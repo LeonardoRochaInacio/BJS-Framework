@@ -4,21 +4,21 @@ import PerpectiveCamera from './perpectiveCamera.js'
 export default 
 class Scene extends ThreeJSScene
 {
-    #beagleSceneCamera = null;
+    #sceneCameraObject = null;
 
     constructor()
     {
         super();
     }
 
-    get cameraObject()
+    get sceneCameraObject()
     {
-        return this.#beagleSceneCamera;
+        return this.#sceneCameraObject;
     }
 
     setCamera(cameraObject)
     {
-        if(!(sceneObject instanceof PerpectiveCamera)) throw new Error('Camera can only inherit from PerpectiveCamera');
-        this.#beagleSceneCamera = cameraObject;
+        if(!(cameraObject instanceof PerpectiveCamera)) throw new Error('Camera can only inherit from PerpectiveCamera');
+        this.#sceneCameraObject = cameraObject;
     }
 };

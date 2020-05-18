@@ -40,13 +40,9 @@ class Renderer extends WebGLRenderer
         this.#lastTime = currenTime;
         this.#worldDeltaSeconds = deltaTime;
         this.#includedScenes.forEach((value, key, map) => {
-            if(value.cameraObject == null) throw new Error('Invalid camera on Scene id #'+ value.uuid + ", please setup a camera");
-            renderer.render(value, value.camera);
+            if(value.sceneCameraObject == null) throw new Error('Invalid camera on Scene id #'+ value.uuid + ", please setup a camera");
+            this.render(value, value.sceneCameraObject);
         })
-
-        
-
-        ///renderer.render(scene, camera);
         
         requestAnimationFrame(this.tick);
     };
